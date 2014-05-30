@@ -79,5 +79,5 @@ using System.Runtime.InteropServices;
 [assembly: System.Security.AllowPartiallyTrustedCallers]
 
 #if !RHINO_SDK && !MONO_BUILD
-[assembly: System.Security.SecurityRules(System.Security.SecurityRuleSet.Level1)]
+//[assembly: System.Security.SecurityRules(System.Security.SecurityRuleSet.Level1)]
 #endif

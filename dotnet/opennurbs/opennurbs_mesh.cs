@@ -1,7 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-//using System.Drawing;
+using Rhino.Drawing;
 using System.Runtime.InteropServices;
 using System.Diagnostics;
 using Rhino.Collections;
@@ -1708,7 +1708,7 @@ namespace Rhino.Geometry
       int argb = UnsafeNativeMethods.ON_Mesh_MeshColorAt(pConstThis, faceIndex, t0, t1, t2, t3);
 
       if (argb < 0) { return Color.Transparent; }
-      return System.Drawing.Color.FromArgb(argb);
+      return Rhino.Drawing.Color.FromArgb(argb);
     }
 
     /// <summary>

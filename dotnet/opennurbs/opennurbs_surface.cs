@@ -1473,7 +1473,7 @@ namespace Rhino.Geometry
     }
 
 #if RHINO_SDK
-    internal virtual void Draw(Display.DisplayPipeline pipeline, System.Drawing.Color color, int density)
+    internal virtual void Draw(Display.DisplayPipeline pipeline, Rhino.Drawing.Color color, int density)
     {
       IntPtr pDisplayPipeline = pipeline.NonConstPointer();
       IntPtr ptr = ConstPointer();

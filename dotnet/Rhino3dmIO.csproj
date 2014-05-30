@@ -78,6 +78,18 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="AutoNativeMethods.cs" />
+    <Compile Include="Drawing\Color.cs" />
+    <Compile Include="Drawing\ColorTranslator.cs" />
+    <Compile Include="Drawing\Font.cs" />
+    <Compile Include="Drawing\FontFamily.cs" />
+    <Compile Include="Drawing\FontStyle.cs" />
+    <Compile Include="Drawing\GraphicsUnit.cs" />
+    <Compile Include="Drawing\Point.cs" />
+    <Compile Include="Drawing\PointF.cs" />
+    <Compile Include="Drawing\Rectangle.cs" />
+    <Compile Include="Drawing\RectangleF.cs" />
+    <Compile Include="Drawing\Size.cs" />
+    <Compile Include="Drawing\SizeF.cs" />
     <Compile Include="hostutils.cs" />
     <Compile Include="Import.cs" />
     <Compile Include="interop.cs" />
@@ -302,9 +314,7 @@
   <ItemGroup>
     <None Include="RDN_StrongName.snk" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Structs\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>

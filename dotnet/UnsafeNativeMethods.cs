@@ -12,6 +12,7 @@ using System.Runtime.InteropServices;
 // Giulio saw a significant performance increase by marking this class with the
 // SuppressUnmanagedCodeSecurity attribute. See MSDN for details
 //[System.Security.SuppressUnmanagedCodeSecurity]
+[System.Security.SecurityCritical]
 internal partial class UnsafeNativeMethods
 {
   [StructLayout(LayoutKind.Sequential)]

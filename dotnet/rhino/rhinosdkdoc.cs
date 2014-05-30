@@ -1043,7 +1043,7 @@ namespace Rhino
     //  int ConstructionPlaneCount() const;
 
 
-    internal bool CreatePreviewImage(string imagePath, Guid viewportId, System.Drawing.Size size, int settings, bool wireframe)
+    internal bool CreatePreviewImage(string imagePath, Guid viewportId, Rhino.Drawing.Size size, int settings, bool wireframe)
     {
       int width = size.Width;
       int height = size.Height;
@@ -1057,7 +1057,7 @@ namespace Rhino
     ///If null, the currently loaded model is used.
     ///</param>
     ///<returns>true on success.</returns>
-    static public System.Drawing.Bitmap ExtractPreviewImage(string path)
+    static public Rhino.Drawing.Bitmap ExtractPreviewImage(string path)
     {
       if (string.IsNullOrEmpty(path))
       {
@@ -1067,11 +1067,11 @@ namespace Rhino
       if (IntPtr.Zero == pRhinoDib)
         return null;
 
-      System.Drawing.Bitmap rc = null;
+      Rhino.Drawing.Bitmap rc = null;
       IntPtr hBmp = UnsafeNativeMethods.CRhinoDib_Bitmap(pRhinoDib);
       if (IntPtr.Zero != hBmp)
       {
-        rc = System.Drawing.Image.FromHbitmap(hBmp);
+        rc = Rhino.Drawing.Image.FromHbitmap(hBmp);
       }
       UnsafeNativeMethods.CRhinoDib_Delete(pRhinoDib);
       return rc;
@@ -3178,7 +3178,7 @@ namespace Rhino.DocObjects.Tables
     /// <param name="position">A position.</param>
     /// <param name="floating">true if the view floats; false if it is docked.</param>
     /// <returns>The newly constructed Rhino view; or null on error.</returns>
-    public Rhino.Display.RhinoView Add(string title, DefinedViewportProjection projection, System.Drawing.Rectangle position, bool floating)
+    public Rhino.Display.RhinoView Add(string title, DefinedViewportProjection projection, Rhino.Drawing.Rectangle position, bool floating)
     {
       IntPtr pView = UnsafeNativeMethods.CRhinoView_Create(m_doc.m_docId, position.Left, position.Top, position.Right, position.Bottom, floating);
       Rhino.Display.RhinoView rc = RhinoView.FromIntPtr(pView);
@@ -3456,7 +3456,7 @@ namespace Rhino.DocObjects.Tables
     /// <param name="drawColor">The alpha value of this color is ignored.</param>
     /// <param name="includeLights">true if lights should be included.</param>
     /// <returns>An array of Rhino document objects. This array can be empty.</returns>
-    public RhinoObject[] FindByDrawColor(System.Drawing.Color drawColor, bool includeLights)
+    public RhinoObject[] FindByDrawColor(Rhino.Drawing.Color drawColor, bool includeLights)
     {
       ObjectEnumeratorSettings it = new ObjectEnumeratorSettings();
       it.IncludeLights = includeLights;
@@ -3465,7 +3465,7 @@ namespace Rhino.DocObjects.Tables
       List<RhinoObject> rc = new List<RhinoObject>();
       foreach( RhinoObject obj in GetObjectList(it))
       {
-        System.Drawing.Color object_color = obj.Attributes.DrawColor(m_doc);
+        Rhino.Drawing.Color object_color = obj.Attributes.DrawColor(m_doc);
         if (object_color.R == drawColor.R && object_color.G == drawColor.G && object_color.B == drawColor.B)
           rc.Add(obj);
       }
@@ -3712,7 +3712,7 @@ namespace Rhino.DocObjects.Tables
       Type base_type = typeof(RhinoObject);
       Type t = rhobj.GetType();
       const BindingFlags flags = System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.Public;
-      System.Reflection.MethodInfo mi = t.GetMethod("ShortDescription", flags);
+      System.Reflection.MethodInfo mi = t.GetRuntimeMethod("ShortDescription", flags);
       // Don't set description strings if the function has not been overloaded
       if (mi.DeclaringType != base_type)
       {

@@ -663,10 +663,10 @@ namespace Rhino.Geometry
 
     /// <summary>
     /// Color to use for drawing a text mask when it is enabled. If the mask is
-    /// enabled and MaskColor is System.Drawing.Color.Transparent, then the
+    /// enabled and MaskColor is Rhino.Drawing.Color.Transparent, then the
     /// viewport's color will be used for the MaskColor
     /// </summary>
-    public System.Drawing.Color MaskColor
+    public Rhino.Drawing.Color MaskColor
     {
       get
       {

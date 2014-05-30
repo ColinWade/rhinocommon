@@ -3,7 +3,7 @@ using System;
 using System.Runtime.InteropServices;
 using System.Runtime.Serialization;
 //using System.Security.Permissions;
-//using System.Drawing;
+using Rhino.Drawing;
 
 #if RHINO_SDK
 namespace Rhino.Display
@@ -343,7 +343,7 @@ namespace Rhino.Display
     {
       IntPtr pConstThis = ConstPointer();
       int argb = UnsafeNativeMethods.CDisplayPipelineAttributes_GetSetColor(pConstThis, which, false, 0);
-      return System.Drawing.Color.FromArgb(argb);
+      return Rhino.Drawing.Color.FromArgb(argb);
     }
     void SetColor(int which, Color c)
     {
@@ -404,7 +404,7 @@ namespace Rhino.Display
     //bool m_bCurveKappaHair;
     //bool m_bSingleCurveColor;
     /// <summary>Color used for drawing curves</summary>
-    public System.Drawing.Color CurveColor
+    public Rhino.Drawing.Color CurveColor
     {
       get { return GetColor(idx_CurveColor); }
       set { SetColor(idx_CurveColor, value); }
@@ -484,7 +484,7 @@ namespace Rhino.Display
     /// <summary>
     /// If Color.Unset, then a specific lock color is NOT used
     /// </summary>
-    public System.Drawing.Color UseSpecificLockColor
+    public Rhino.Drawing.Color UseSpecificLockColor
     {
       get
       {

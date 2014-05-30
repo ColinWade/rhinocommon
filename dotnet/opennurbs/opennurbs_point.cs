@@ -593,7 +593,8 @@ namespace Rhino.Geometry
   [StructLayout(LayoutKind.Sequential, Pack = 8, Size = 16)]
   [DebuggerDisplay("({m_x}, {m_y})")]
   //[Serializable]
-  public struct Point2d : ISerializable, IEquatable<Point2d>, IComparable<Point2d>, IComparable, IEpsilonComparable<Point2d>
+  public struct Point2d : //ISerializable, 
+      IEquatable<Point2d>, IComparable<Point2d>, IComparable, IEpsilonComparable<Point2d>
   {
     private double m_x;
     private double m_y;
@@ -1166,7 +1167,8 @@ namespace Rhino.Geometry
   [StructLayout(LayoutKind.Sequential, Pack = 8, Size = 24)]
   [DebuggerDisplay("({m_x}, {m_y}, {m_z})")]
   //[Serializable]
-  public struct Point3d : ISerializable, IEquatable<Point3d>, IComparable<Point3d>, IComparable, IEpsilonComparable<Point3d>
+  public struct Point3d : //ISerializable, 
+      IEquatable<Point3d>, IComparable<Point3d>, IComparable, IEpsilonComparable<Point3d>
   {
     #region members
     internal double m_x;
@@ -2019,7 +2021,8 @@ namespace Rhino.Geometry
   [StructLayout(LayoutKind.Sequential, Pack = 8, Size = 32)]
   [DebuggerDisplay("({m_x}, {m_y}, {m_z}, [{m_w}])")]
   //[Serializable]
-  public struct Point4d : ISerializable, IEquatable<Point4d>, IEpsilonComparable<Point4d>
+  public struct Point4d : //ISerializable, 
+      IEquatable<Point4d>, IEpsilonComparable<Point4d>
   {
     internal double m_x;
     internal double m_y;
@@ -2326,7 +2329,8 @@ namespace Rhino.Geometry
   [StructLayout(LayoutKind.Sequential, Pack = 8, Size = 16)]
   [DebuggerDisplay("({m_x}, {m_y})")]
   //[Serializable]
-  public struct Vector2d : ISerializable, IEquatable<Vector2d>, IComparable<Vector2d>, IComparable, IEpsilonComparable<Vector2d>
+  public struct Vector2d : //ISerializable, 
+      IEquatable<Vector2d>, IComparable<Vector2d>, IComparable, IEpsilonComparable<Vector2d>
   {
     private double m_x;
     private double m_y;
@@ -2585,7 +2589,8 @@ namespace Rhino.Geometry
   [StructLayout(LayoutKind.Sequential, Pack = 8, Size = 24)]
   [DebuggerDisplay("({m_x}, {m_y}, {m_z})")]
   //[Serializable]
-  public struct Vector3d : ISerializable, IEquatable<Vector3d>, IComparable<Vector3d>, IComparable, IEpsilonComparable<Vector3d>
+  public struct Vector3d : //ISerializable, 
+      IEquatable<Vector3d>, IComparable<Vector3d>, IComparable, IEpsilonComparable<Vector3d>
   {
     #region fields
     internal double m_x;

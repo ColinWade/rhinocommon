@@ -20,7 +20,7 @@ namespace Rhino.Display
     readonly float m_b;
     readonly float m_a;
 
-    public Color4f(System.Drawing.Color color)
+    public Color4f(Rhino.Drawing.Color color)
     {
       m_r = color.R / 255.0f;
       m_g = color.G / 255.0f;
@@ -114,9 +114,9 @@ namespace Rhino.Display
       return new Color4f(r, g, b, a);
     }
 
-    public System.Drawing.Color AsSystemColor()
+    public Rhino.Drawing.Color AsSystemColor()
     {
-      return System.Drawing.Color.FromArgb((int)(m_a * 255.0f),
+      return Rhino.Drawing.Color.FromArgb((int)(m_a * 255.0f),
                                            (int)(m_r * 255.0f),
                                            (int)(m_g * 255.0f),
                                            (int)(m_b * 255.0f));

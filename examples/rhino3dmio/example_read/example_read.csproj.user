@@ -8,7 +8,7 @@
     <StartArguments>-out:example_dump_log.txt -c -r C:\dev\github\mcneel\rhinocommon\c\opennurbs\sample_files</StartArguments>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
-    <StartArguments>-out:example_dump_log.txt -c -r C:\dev\github\mcneel\rhinocommon\c\opennurbs\sample_files</StartArguments>
+    <StartArguments>-out:example_dump_log.txt -c -r "D:\SkyDrive\Documents\Visual Studio 2013\Projects\rhinocommon\examples\rhino3dmio\example_read\bin\Debug\AnyCPU"</StartArguments>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
     <StartArguments>Air\ Cleaner.3dm -c</StartArguments>

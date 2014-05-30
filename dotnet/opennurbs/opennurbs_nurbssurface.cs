@@ -486,7 +486,7 @@ namespace Rhino.Geometry
     }
 
 #if RHINO_SDK
-    internal override void Draw(Display.DisplayPipeline pipeline, System.Drawing.Color color, int density)
+    internal override void Draw(Display.DisplayPipeline pipeline, Rhino.Drawing.Color color, int density)
     {
       IntPtr pDisplayPipeline = pipeline.NonConstPointer();
       IntPtr ptr = ConstPointer();

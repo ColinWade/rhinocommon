@@ -457,39 +457,39 @@ namespace Rhino.Runtime
       }
     }
 
-    /// <summary>
-    /// Gets a copy of all (user key string, user value string) pairs attached to this geometry.
-    /// </summary>
-    /// <returns>A new collection.</returns>
-    internal System.Collections.Specialized.NameValueCollection _GetUserStrings()
-    {
-      System.Collections.Specialized.NameValueCollection rc = new System.Collections.Specialized.NameValueCollection();
-      IntPtr pThis = ConstPointer();
-      int count = 0;
-      IntPtr pUserStrings = UnsafeNativeMethods.ON_Object_GetUserStrings(pThis, ref count);
+    ///// <summary>
+    ///// Gets a copy of all (user key string, user value string) pairs attached to this geometry.
+    ///// </summary>
+    ///// <returns>A new collection.</returns>
+    //internal System.Collections.Specialized.NameValueCollection _GetUserStrings()
+    //{
+    //  System.Collections.Specialized.NameValueCollection rc = new System.Collections.Specialized.NameValueCollection();
+    //  IntPtr pThis = ConstPointer();
+    //  int count = 0;
+    //  IntPtr pUserStrings = UnsafeNativeMethods.ON_Object_GetUserStrings(pThis, ref count);
 
-      using( var keyHolder = new StringHolder() )
-      using( var valueHolder = new StringHolder() )
-      {
-        IntPtr pKeyHolder = keyHolder.NonConstPointer();
-        IntPtr pValueHolder = valueHolder.NonConstPointer();
+    //  using( var keyHolder = new StringHolder() )
+    //  using( var valueHolder = new StringHolder() )
+    //  {
+    //    IntPtr pKeyHolder = keyHolder.NonConstPointer();
+    //    IntPtr pValueHolder = valueHolder.NonConstPointer();
 
-        for (int i = 0; i < count; i++)
-        {
-          UnsafeNativeMethods.ON_UserStringList_KeyValue(pUserStrings, i, true, pKeyHolder);
-          UnsafeNativeMethods.ON_UserStringList_KeyValue(pUserStrings, i, false, pValueHolder);
-          string key = keyHolder.ToString();
-          string value = valueHolder.ToString();
-          if (!string.IsNullOrEmpty(key) && !string.IsNullOrEmpty(value))
-            rc.Add(key, value);
-        }
-      }
+    //    for (int i = 0; i < count; i++)
+    //    {
+    //      UnsafeNativeMethods.ON_UserStringList_KeyValue(pUserStrings, i, true, pKeyHolder);
+    //      UnsafeNativeMethods.ON_UserStringList_KeyValue(pUserStrings, i, false, pValueHolder);
+    //      string key = keyHolder.ToString();
+    //      string value = valueHolder.ToString();
+    //      if (!string.IsNullOrEmpty(key) && !string.IsNullOrEmpty(value))
+    //        rc.Add(key, value);
+    //    }
+    //  }
 
-      if (IntPtr.Zero != pUserStrings)
-        UnsafeNativeMethods.ON_UserStringList_Delete(pUserStrings);
+    //  if (IntPtr.Zero != pUserStrings)
+    //    UnsafeNativeMethods.ON_UserStringList_Delete(pUserStrings);
 
-      return rc;
-    }
+    //  return rc;
+    //}
     #endregion
 
 

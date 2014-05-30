@@ -681,14 +681,14 @@ namespace Rhino.Geometry
       }
     }
 
-    /// <summary>
-    /// Gets a copy of all (user key string, user value string) pairs attached to this geometry.
-    /// </summary>
-    /// <returns>A new collection.</returns>
-    public System.Collections.Specialized.NameValueCollection GetUserStrings()
-    {
-      return _GetUserStrings();
-    }
+    ///// <summary>
+    ///// Gets a copy of all (user key string, user value string) pairs attached to this geometry.
+    ///// </summary>
+    ///// <returns>A new collection.</returns>
+    //public System.Collections.Specialized.NameValueCollection GetUserStrings()
+    //{
+    //  return _GetUserStrings();
+    //}
     #endregion
   }
 

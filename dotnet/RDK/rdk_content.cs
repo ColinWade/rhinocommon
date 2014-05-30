@@ -3,7 +3,7 @@
 #if RDK_CHECKED
 using System;
 using System.Collections.Generic;
-//using System.Drawing;
+using Rhino.Drawing;
 using System.IO;
 using System.Reflection;
 using System.Windows.Forms;
@@ -1192,14 +1192,14 @@ namespace Rhino.Render
       if (null != winform_control)
       {
         var argb = UnsafeNativeMethods.Rdk_ContentUiBackgroundColor();
-        var color = System.Drawing.Color.FromArgb(argb);
+        var color = Rhino.Drawing.Color.FromArgb(argb);
         winform_control.BackColor = color;
       }
       //if (ApplicationSettings.AppearanceSettings.UsePaintColors)
       //{
       //  var asControl = control as Control;
       //  if (null != asControl)
-      //    asControl.BackColor = System.Drawing.SystemColors.ButtonFace;
+      //    asControl.BackColor = Rhino.Drawing.SystemColors.ButtonFace;
       //      //ApplicationSettings.AppearanceSettings.GetPaintColor(ApplicationSettings.PaintColor.NormalEnd);
       //}
       var newUiSection = NewUiPointer(classType.GUID, caption, createExpanded, createVisible, control);
