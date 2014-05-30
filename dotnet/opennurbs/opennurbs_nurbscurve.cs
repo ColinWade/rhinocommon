@@ -10,7 +10,7 @@ namespace Rhino.Geometry
   /// <summary>
   /// Represents a Non Uniform Rational B-Splines (NURBS) curve.
   /// </summary>
-  [Serializable]
+  //[Serializable]
   public class NurbsCurve : Curve, IEpsilonComparable<NurbsCurve>
   {
     #region statics
@@ -269,15 +269,15 @@ namespace Rhino.Geometry
       ConstructNonConstObject(ptr);
     }
 
-    /// <summary>
-    /// Protected constructor for internal use.
-    /// </summary>
-    /// <param name="info">Serialization data.</param>
-    /// <param name="context">Serialization stream.</param>
-    protected NurbsCurve(SerializationInfo info, StreamingContext context)
-      :base(info, context)
-    {
-    }
+    ///// <summary>
+    ///// Protected constructor for internal use.
+    ///// </summary>
+    ///// <param name="info">Serialization data.</param>
+    ///// <param name="context">Serialization stream.</param>
+    //protected NurbsCurve(SerializationInfo info, StreamingContext context)
+    //  :base(info, context)
+    //{
+    //}
 
     //[skipping]
     // public ON_NurbsCurve(ON_BezierCurve)
@@ -598,7 +598,7 @@ namespace Rhino.Geometry
   /// <summary>
   /// Represents control-point geometry with three-dimensional position and weight.
   /// </summary>
-  [Serializable]
+  //[Serializable]
   public struct ControlPoint : IEpsilonComparable<ControlPoint>
   {
     #region members

@@ -1315,7 +1315,7 @@ namespace Rhino.Runtime
   /// <summary>
   /// Is thrown when the RDK is not loaded.
   /// </summary>
-  [Serializable]
+  //[Serializable]
   public class RdkNotLoadedException : Exception
   {
     /// <summary>

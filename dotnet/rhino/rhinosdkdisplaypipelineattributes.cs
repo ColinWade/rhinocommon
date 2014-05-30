@@ -2,8 +2,8 @@
 using System;
 using System.Runtime.InteropServices;
 using System.Runtime.Serialization;
-using System.Security.Permissions;
-using System.Drawing;
+//using System.Security.Permissions;
+//using System.Drawing;
 
 #if RHINO_SDK
 namespace Rhino.Display
@@ -11,7 +11,7 @@ namespace Rhino.Display
   /// <summary>
   /// Represents display pipeline settings, such as "show transparency" and "show grips".
   /// </summary>
-  [Serializable]
+  //[Serializable]
   public class DisplayPipelineAttributes : IDisposable, ISerializable
   {
     #region pointer tracking

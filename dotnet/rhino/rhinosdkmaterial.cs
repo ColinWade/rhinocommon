@@ -35,7 +35,7 @@ namespace Rhino.DocObjects
     }
   }
 
-  [Serializable]
+  //[Serializable]
   public class Material : Runtime.CommonObject
   {
     #region members
@@ -111,11 +111,11 @@ namespace Rhino.DocObjects
       m__parent = parent;
     }
 
-    // serialization constructor
-    protected Material(SerializationInfo info, StreamingContext context)
-      : base (info, context)
-    {
-    }
+    //// serialization constructor
+    //protected Material(SerializationInfo info, StreamingContext context)
+    //  : base (info, context)
+    //{
+    //}
     #endregion
 
     internal override IntPtr _InternalGetConstPointer()

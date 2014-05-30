@@ -3,29 +3,29 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Xml;
-using System.Drawing;
+//using System.Drawing;
 using System.Globalization;
 using System.Text;
 using System.Runtime.Serialization;
-using System.Security.Permissions;
+//using System.Security.Permissions;
 
 using Rhino.Geometry;
 
 namespace Rhino
 {
   /// <summary> PersistentSettings contains a dictionary of these items. </summary>
-  class SettingValue : ISerializable
+  class SettingValue //: ISerializable
   {
-    /// <summary>
-    /// ISerializable constructor.
-    /// </summary>
-    /// <param name="info">Serialization data.</param>
-    /// <param name="context">Serialization stream.</param>
-    protected SettingValue(SerializationInfo info, StreamingContext context)
-    {
-      m_value = info.GetString("value");
-      m_default_value = info.GetString("default_value");
-    }
+    ///// <summary>
+    ///// ISerializable constructor.
+    ///// </summary>
+    ///// <param name="info">Serialization data.</param>
+    ///// <param name="context">Serialization stream.</param>
+    //protected SettingValue(SerializationInfo info, StreamingContext context)
+    //{
+    //  m_value = info.GetString("value");
+    //  m_default_value = info.GetString("default_value");
+    //}
 
     /// <summary> Constructor. </summary>
     /// <param name="value">Current value string.</param>
@@ -38,15 +38,15 @@ namespace Rhino
         m_default_value = default_value;
     }
 
-    /// <summary> ISerializable required method. </summary>
-    /// <param name="info">Serialization data.</param>
-    /// <param name="context">Serialization stream.</param>
-    [SecurityPermission(SecurityAction.LinkDemand, Flags = SecurityPermissionFlag.SerializationFormatter)]
-    void ISerializable.GetObjectData(SerializationInfo info, StreamingContext context)
-    {
-      info.AddValue("value", m_value);
-      info.AddValue("default_value", m_default_value);
-    }
+    ///// <summary> ISerializable required method. </summary>
+    ///// <param name="info">Serialization data.</param>
+    ///// <param name="context">Serialization stream.</param>
+    //[SecurityPermission(SecurityAction.LinkDemand, Flags = SecurityPermissionFlag.SerializationFormatter)]
+    //void ISerializable.GetObjectData(SerializationInfo info, StreamingContext context)
+    //{
+    //  info.AddValue("value", m_value);
+    //  info.AddValue("default_value", m_default_value);
+    //}
     /// <summary>
     /// Copies values from another SettingsValue object. If the destination contains more than one item,
     /// assumes it is a string list and appends values from the source object that are not currently in
@@ -562,21 +562,21 @@ namespace Rhino
   /// <summary>
   /// A dictionary of SettingValue items.
   /// </summary>
-  [Serializable]
-  public class PersistentSettings : ISerializable
+  //[Serializable]
+  public class PersistentSettings //: ISerializable
   {
     readonly Dictionary<string, SettingValue> m_Settings;
     readonly Dictionary<string, EventHandler<PersistentSettingsEventArgs>> m_SettingsValidators;
 
-    protected PersistentSettings(SerializationInfo info, StreamingContext context)
-    {
-    }
+    //protected PersistentSettings(SerializationInfo info, StreamingContext context)
+    //{
+    //}
 
-    [SecurityPermission(SecurityAction.LinkDemand, Flags = SecurityPermissionFlag.SerializationFormatter)]
-    void ISerializable.GetObjectData(SerializationInfo info, StreamingContext context)
-    {
-      m_Settings.GetObjectData(info, context);
-    }
+    //[SecurityPermission(SecurityAction.LinkDemand, Flags = SecurityPermissionFlag.SerializationFormatter)]
+    //void ISerializable.GetObjectData(SerializationInfo info, StreamingContext context)
+    //{
+    //  m_Settings.GetObjectData(info, context);
+    //}
 
     private readonly PersistentSettings AllUserSettings;
 

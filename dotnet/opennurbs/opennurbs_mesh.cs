@@ -1,7 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Drawing;
+//using System.Drawing;
 using System.Runtime.InteropServices;
 using System.Diagnostics;
 using Rhino.Collections;
@@ -496,7 +496,7 @@ namespace Rhino.Geometry
   /// Represents a geometry type that is defined by vertices and faces.
   /// <para>This is often called a face-vertex mesh.</para>
   /// </summary>
-  [Serializable]
+  //[Serializable]
   public class Mesh : GeometryBase
   {
     #region static mesh creation
@@ -862,15 +862,15 @@ namespace Rhino.Geometry
       ApplyMemoryPressure();
     }
 
-    /// <summary>
-    /// Protected constructor for internal use.
-    /// </summary>
-    /// <param name="info">Serialization data.</param>
-    /// <param name="context">Serialization stream.</param>
-    protected Mesh(SerializationInfo info, StreamingContext context)
-      : base(info, context)
-    {
-    }
+    ///// <summary>
+    ///// Protected constructor for internal use.
+    ///// </summary>
+    ///// <param name="info">Serialization data.</param>
+    ///// <param name="context">Serialization stream.</param>
+    //protected Mesh(SerializationInfo info, StreamingContext context)
+    //  : base(info, context)
+    //{
+    //}
 
     internal override IntPtr _InternalGetConstPointer()
     {
@@ -4936,7 +4936,7 @@ namespace Rhino.Geometry
   /// </summary>
   [StructLayout(LayoutKind.Sequential, Pack = 4, Size = 16)]
   [DebuggerDisplay("{DebuggerDisplayUtil}")]
-  [Serializable]
+  //[Serializable]
   public struct MeshFace
   {
     #region members

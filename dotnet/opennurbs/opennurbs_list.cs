@@ -75,8 +75,8 @@ namespace Rhino.Collections
   /// Represents a list of generic data. This class is similar to System.Collections.Generic.List(T) 
   /// but exposes a few more methods.
   /// </summary>
-  [Serializable,
-  DebuggerTypeProxy(typeof(ListDebuggerDisplayProxy<>)),
+  //[Serializable]
+  [DebuggerTypeProxy(typeof(ListDebuggerDisplayProxy<>)),
   DebuggerDisplay("Count = {Count}")]
   public class RhinoList<T> : IList<T>, IList
   {
@@ -96,7 +96,7 @@ namespace Rhino.Collections
     [DebuggerBrowsable(DebuggerBrowsableState.Never)]
     internal int m_size;
 
-    [NonSerialized]
+    //[NonSerialized]
     [DebuggerBrowsable(DebuggerBrowsableState.Never)]
     private object m_syncRoot;
 
@@ -1627,7 +1627,7 @@ namespace Rhino.Collections
   /// <summary>
   /// Represents a list of <see cref="Point3d"/>.
   /// </summary>
-  [Serializable]
+  //[Serializable]
   public class Point3dList : RhinoList<Point3d>
   {
     /// <summary>

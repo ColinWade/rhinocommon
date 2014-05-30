@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
-using System.Security.Permissions;
+//using System.Security.Permissions;
 using Rhino.Geometry;
 
 namespace Rhino.DocObjects
@@ -9,8 +9,8 @@ namespace Rhino.DocObjects
   /// <summary>
   /// Represents a viewing frustum.
   /// </summary>
-  [Serializable]
-  public sealed class ViewportInfo : IDisposable, ISerializable
+  //[Serializable]
+  public sealed class ViewportInfo : IDisposable//, ISerializable
   {
     readonly object m_parent;
     IntPtr m_pViewportPointer = IntPtr.Zero;
@@ -82,22 +82,22 @@ namespace Rhino.DocObjects
       m_parent = parent;
     }
 
-    private ViewportInfo(SerializationInfo info, StreamingContext context)
-    {
-      m_pViewportPointer = Rhino.Runtime.CommonObject.SerializeReadON_Object(info, context);
-     }
+    //private ViewportInfo(SerializationInfo info, StreamingContext context)
+    //{
+    //  m_pViewportPointer = Rhino.Runtime.CommonObject.SerializeReadON_Object(info, context);
+    // }
 
-    /// <summary>
-    /// Populates a System.Runtime.Serialization.SerializationInfo with the data needed to serialize the target object.
-    /// </summary>
-    /// <param name="info">The System.Runtime.Serialization.SerializationInfo to populate with data.</param>
-    /// <param name="context">The destination (see System.Runtime.Serialization.StreamingContext) for this serialization.</param>
-    [SecurityPermission(SecurityAction.LinkDemand, Flags = SecurityPermissionFlag.SerializationFormatter)]
-    public void GetObjectData(SerializationInfo info, StreamingContext context)
-    {
-      IntPtr pConstThis = ConstPointer();
-      Rhino.Runtime.CommonObject.SerializeWriteON_Object(pConstThis, info, context);
-    }
+    ///// <summary>
+    ///// Populates a System.Runtime.Serialization.SerializationInfo with the data needed to serialize the target object.
+    ///// </summary>
+    ///// <param name="info">The System.Runtime.Serialization.SerializationInfo to populate with data.</param>
+    ///// <param name="context">The destination (see System.Runtime.Serialization.StreamingContext) for this serialization.</param>
+    //[SecurityPermission(SecurityAction.LinkDemand, Flags = SecurityPermissionFlag.SerializationFormatter)]
+    //public void GetObjectData(SerializationInfo info, StreamingContext context)
+    //{
+    //  IntPtr pConstThis = ConstPointer();
+    //  Rhino.Runtime.CommonObject.SerializeWriteON_Object(pConstThis, info, context);
+    //}
 
     const int idxIsValidCamera = 0;
     const int idxIsValidFrustum = 1;

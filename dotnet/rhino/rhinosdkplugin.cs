@@ -3,7 +3,7 @@ using System;
 using System.Runtime.InteropServices;
 using Rhino.Runtime;
 using System.Collections.Generic;
-using System.Drawing;
+//using System.Drawing;
 using Rhino.Runtime.InteropWrappers;
 
 #if RDK_CHECKED

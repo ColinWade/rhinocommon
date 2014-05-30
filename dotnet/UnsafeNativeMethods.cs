@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 // 19 Dec. 2010 S. Baer
 // Giulio saw a significant performance increase by marking this class with the
 // SuppressUnmanagedCodeSecurity attribute. See MSDN for details
-[System.Security.SuppressUnmanagedCodeSecurity]
+//[System.Security.SuppressUnmanagedCodeSecurity]
 internal partial class UnsafeNativeMethods
 {
   [StructLayout(LayoutKind.Sequential)]
@@ -60,7 +60,7 @@ internal partial class UnsafeNativeMethods
   [return: MarshalAs(UnmanagedType.Bool)]
   internal static extern bool GetCursorPos(out Point lpPoint);
 
-  [DllImport("user32.dll", CharSet = CharSet.Auto)]
+  [DllImport("user32.dll")]
   internal extern static bool DestroyIcon(IntPtr handle);
 
   [DllImport("user32.dll")]

@@ -8,7 +8,7 @@ namespace Rhino.DocObjects
   /// <summary>
   /// Attributes (color, material, layer,...) associated with a rhino object
   /// </summary>
-  [Serializable]
+  //[Serializable]
   public class ObjectAttributes : Runtime.CommonObject
   {
 #if RHINO_SDK
@@ -95,11 +95,11 @@ namespace Rhino.DocObjects
       ConstructNonConstObject(ptr);
     }
 
-    // serialization constructor
-    protected ObjectAttributes(SerializationInfo info, StreamingContext context)
-      : base (info, context)
-    {
-    }
+    //// serialization constructor
+    //protected ObjectAttributes(SerializationInfo info, StreamingContext context)
+    //  : base (info, context)
+    //{
+    //}
 
     /// <summary>
     /// Constructs a copy of this <see cref="ObjectAttributes"/> instance.

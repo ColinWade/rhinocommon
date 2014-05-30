@@ -7,7 +7,7 @@ using Rhino.Runtime.InteropWrappers;
 
 namespace Rhino.DocObjects
 {
-  [Serializable]
+  //[Serializable]
   public class Linetype : Rhino.Runtime.CommonObject
   {
     #region members
@@ -37,11 +37,11 @@ namespace Rhino.DocObjects
     }
 #endif
 
-    // serialization constructor
-    protected Linetype(SerializationInfo info, StreamingContext context)
-      : base (info, context)
-    {
-    }
+    //// serialization constructor
+    //protected Linetype(SerializationInfo info, StreamingContext context)
+    //  : base (info, context)
+    //{
+    //}
 
     internal Linetype(Guid id, Rhino.FileIO.File3dm onxModel)
     {

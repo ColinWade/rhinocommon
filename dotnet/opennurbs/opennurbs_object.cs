@@ -1,6 +1,6 @@
 using System;
 using System.Runtime.Serialization;
-using System.Security.Permissions;
+//using System.Security.Permissions;
 using Rhino.Runtime.InteropWrappers;
 
 namespace Rhino.Runtime
@@ -9,7 +9,7 @@ namespace Rhino.Runtime
   /// Represents the error that happen when a class user attempts to execute a modifying operation
   /// on an object that has been added to a document.
   /// </summary>
-  [Serializable]
+  //[Serializable]
   public class DocumentCollectedException : Exception
   {
     /// <summary>
@@ -22,8 +22,8 @@ namespace Rhino.Runtime
   /// <summary>
   /// Base class for .NET classes that wrap C++ unmanaged Rhino classes.
   /// </summary>
-  [Serializable]
-  public abstract class CommonObject : IDisposable, ISerializable
+  //[Serializable]
+  public abstract class CommonObject : IDisposable//, ISerializable
   {
     long m_unmanaged_memory;  // amount of "memory" pressure reported to the .NET runtime
 
@@ -493,72 +493,72 @@ namespace Rhino.Runtime
     #endregion
 
 
-    #region serialization support
-    const string ARCHIVE_3DM_VERSION = "archive3dm";
-    const string ARCHIVE_OPENNURBS_VERSION = "opennurbs";
-    internal static IntPtr SerializeReadON_Object(SerializationInfo info, StreamingContext context)
-    {
-      int version = info.GetInt32("version");
-      int archive_3dm_version = info.GetInt32(ARCHIVE_3DM_VERSION);
-      int archive_opennurbs_version = info.GetInt32(ARCHIVE_OPENNURBS_VERSION);
-      byte[] stream = info.GetValue("data", typeof(byte[])) as byte[];
-      IntPtr rc = UnsafeNativeMethods.ON_ReadBufferArchive(archive_3dm_version, archive_opennurbs_version, stream.Length, stream);
-      return rc;
-    }
+//    #region serialization support
+//    const string ARCHIVE_3DM_VERSION = "archive3dm";
+//    const string ARCHIVE_OPENNURBS_VERSION = "opennurbs";
+//    internal static IntPtr SerializeReadON_Object(SerializationInfo info, StreamingContext context)
+//    {
+//      int version = info.GetInt32("version");
+//      int archive_3dm_version = info.GetInt32(ARCHIVE_3DM_VERSION);
+//      int archive_opennurbs_version = info.GetInt32(ARCHIVE_OPENNURBS_VERSION);
+//      byte[] stream = info.GetValue("data", typeof(byte[])) as byte[];
+//      IntPtr rc = UnsafeNativeMethods.ON_ReadBufferArchive(archive_3dm_version, archive_opennurbs_version, stream.Length, stream);
+//      return rc;
+//    }
 
-    /// <summary>
-    /// Protected constructor for internal use.
-    /// </summary>
-    /// <param name="info">Serialization data.</param>
-    /// <param name="context">Serialization stream.</param>
-    protected CommonObject( SerializationInfo info, StreamingContext context)
-    {
-      m_ptr = SerializeReadON_Object(info, context);
-    }
+//    /// <summary>
+//    /// Protected constructor for internal use.
+//    /// </summary>
+//    /// <param name="info">Serialization data.</param>
+//    /// <param name="context">Serialization stream.</param>
+//    protected CommonObject( SerializationInfo info, StreamingContext context)
+//    {
+//      m_ptr = SerializeReadON_Object(info, context);
+//    }
 
-    internal static void SerializeWriteON_Object(IntPtr pConstOnObject, SerializationInfo info, StreamingContext context)
-    {
-      Rhino.FileIO.SerializationOptions options = context.Context as Rhino.FileIO.SerializationOptions;
+//    internal static void SerializeWriteON_Object(IntPtr pConstOnObject, SerializationInfo info, StreamingContext context)
+//    {
+//      Rhino.FileIO.SerializationOptions options = context.Context as Rhino.FileIO.SerializationOptions;
 
-      uint length = 0;
-      bool writeuserdata = true;
-      if (options != null)
-        writeuserdata = options.WriteUserData;
-#if RHINO_SDK
-      int rhino_version = (options != null) ? options.RhinoVersion : RhinoApp.ExeVersion;
-#else
-      int rhino_version = (options != null) ? options.RhinoVersion : 5;
-#endif
-      IntPtr pWriteBuffer = UnsafeNativeMethods.ON_WriteBufferArchive_NewWriter(pConstOnObject, rhino_version, writeuserdata, ref length);
+//      uint length = 0;
+//      bool writeuserdata = true;
+//      if (options != null)
+//        writeuserdata = options.WriteUserData;
+//#if RHINO_SDK
+//      int rhino_version = (options != null) ? options.RhinoVersion : RhinoApp.ExeVersion;
+//#else
+//      int rhino_version = (options != null) ? options.RhinoVersion : 5;
+//#endif
+//      IntPtr pWriteBuffer = UnsafeNativeMethods.ON_WriteBufferArchive_NewWriter(pConstOnObject, rhino_version, writeuserdata, ref length);
 
-      if (length < int.MaxValue)
-      {
-        int sz = (int)length;
-        IntPtr pByteArray = UnsafeNativeMethods.ON_WriteBufferArchive_Buffer(pWriteBuffer);
-        byte[] bytearray = new byte[sz];
-        System.Runtime.InteropServices.Marshal.Copy(pByteArray, bytearray, 0, sz);
+//      if (length < int.MaxValue)
+//      {
+//        int sz = (int)length;
+//        IntPtr pByteArray = UnsafeNativeMethods.ON_WriteBufferArchive_Buffer(pWriteBuffer);
+//        byte[] bytearray = new byte[sz];
+//        System.Runtime.InteropServices.Marshal.Copy(pByteArray, bytearray, 0, sz);
 
-        info.AddValue("version", 10000);
-        info.AddValue(ARCHIVE_3DM_VERSION, rhino_version);
-        int archive_opennurbs_version = UnsafeNativeMethods.ON_Version();
-        info.AddValue(ARCHIVE_OPENNURBS_VERSION, archive_opennurbs_version);
-        info.AddValue("data", bytearray);
-      }
-      UnsafeNativeMethods.ON_WriteBufferArchive_Delete(pWriteBuffer);
-    }
+//        info.AddValue("version", 10000);
+//        info.AddValue(ARCHIVE_3DM_VERSION, rhino_version);
+//        int archive_opennurbs_version = UnsafeNativeMethods.ON_Version();
+//        info.AddValue(ARCHIVE_OPENNURBS_VERSION, archive_opennurbs_version);
+//        info.AddValue("data", bytearray);
+//      }
+//      UnsafeNativeMethods.ON_WriteBufferArchive_Delete(pWriteBuffer);
+//    }
 
-    /// <summary>
-    /// Populates a System.Runtime.Serialization.SerializationInfo with the data needed to serialize the target object.
-    /// </summary>
-    /// <param name="info">The System.Runtime.Serialization.SerializationInfo to populate with data.</param>
-    /// <param name="context">The destination (see System.Runtime.Serialization.StreamingContext) for this serialization.</param>
-    [SecurityPermission(SecurityAction.LinkDemand, Flags=SecurityPermissionFlag.SerializationFormatter)]
-    public virtual void GetObjectData(SerializationInfo info, StreamingContext context)
-    {
-      IntPtr pConstThis = ConstPointer();
-      SerializeWriteON_Object(pConstThis, info, context);
-    }
-    #endregion
+//    /// <summary>
+//    /// Populates a System.Runtime.Serialization.SerializationInfo with the data needed to serialize the target object.
+//    /// </summary>
+//    /// <param name="info">The System.Runtime.Serialization.SerializationInfo to populate with data.</param>
+//    /// <param name="context">The destination (see System.Runtime.Serialization.StreamingContext) for this serialization.</param>
+//    [SecurityPermission(SecurityAction.LinkDemand, Flags=SecurityPermissionFlag.SerializationFormatter)]
+//    public virtual void GetObjectData(SerializationInfo info, StreamingContext context)
+//    {
+//      IntPtr pConstThis = ConstPointer();
+//      SerializeWriteON_Object(pConstThis, info, context);
+//    }
+//    #endregion
   }
 
   class ConstCastHolder

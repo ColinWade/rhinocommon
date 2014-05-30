@@ -7,7 +7,7 @@ namespace Rhino.Display
   /// HSL colors are used primarily in Graphical User Interface environments as they provide a 
   /// very natural approach to picking colors.
   /// </summary>
-  [Serializable]
+  //[Serializable]
   public struct ColorHSL
   {
     #region members
@@ -175,7 +175,7 @@ namespace Rhino.Display
   /// Represents a CMYK (Cyan, Magenta, Yellow, Key) color with double precision floating point channels. 
   /// CMYK colors are used primarily in printing environments as they provide a good simulation of physical ink.
   /// </summary>
-  [Serializable]
+  //[Serializable]
   public struct ColorCMYK
   {
     #region members
@@ -388,7 +388,7 @@ namespace Rhino.Display
   /// XYZ colors are based on the CIE 1931 XYZ color space standard and they mimic the natural 
   /// sensitivity of cones in the human retina.
   /// </summary>
-  [Serializable]
+  //[Serializable]
   public struct ColorXYZ
   {
     #region members
@@ -598,7 +598,7 @@ namespace Rhino.Display
   /// LAB colors are based on nonlinearly compressed CIE XYZ color space coordinates.  
   /// The A and B parameters of a LAB color represent the opponents.
   /// </summary>
-  [Serializable]
+  //[Serializable]
   public struct ColorLAB
   {
     #region members
@@ -762,7 +762,7 @@ namespace Rhino.Display
   /// in order to approach perceptual uniformity. They are primarily used in computer graphics which 
   /// deal with colored lights.
   /// </summary>
-  [Serializable]
+  //[Serializable]
   public struct ColorLCH
   {
     #region members

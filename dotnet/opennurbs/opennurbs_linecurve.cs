@@ -7,7 +7,7 @@ namespace Rhino.Geometry
   /// <summary>
   /// Represents a linear curve.
   /// </summary>
-  [Serializable]
+  //[Serializable]
   public class LineCurve : Curve
   {
     /// <summary>
@@ -86,15 +86,15 @@ namespace Rhino.Geometry
     {
     }
 
-    /// <summary>
-    /// Protected constructor used in serialization.
-    /// </summary>
-    /// <param name="info">Serialization data.</param>
-    /// <param name="context">Serialization stream.</param>
-    protected LineCurve(SerializationInfo info, StreamingContext context)
-      : base (info, context)
-    {
-    }
+    ///// <summary>
+    ///// Protected constructor used in serialization.
+    ///// </summary>
+    ///// <param name="info">Serialization data.</param>
+    ///// <param name="context">Serialization stream.</param>
+    //protected LineCurve(SerializationInfo info, StreamingContext context)
+    //  : base (info, context)
+    //{
+    //}
 
     internal override GeometryBase DuplicateShallowHelper()
     {

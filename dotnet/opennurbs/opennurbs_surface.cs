@@ -198,7 +198,7 @@ namespace Rhino.Geometry
   /// <para>A surface represents an entity that can be all visited by providing
   /// two independent parameters, usually called (u, v), or sometimes (s, t).</para>
   /// </summary>
-  [Serializable]
+  //[Serializable]
   public class Surface : GeometryBase
   {
     #region statics
@@ -367,15 +367,15 @@ namespace Rhino.Geometry
       return new Surface(IntPtr.Zero, null);
     }
 
-    /// <summary>
-    /// Protected constructor for internal use.
-    /// </summary>
-    /// <param name="info">Serialization data.</param>
-    /// <param name="context">Serialization stream.</param>
-    protected Surface(SerializationInfo info, StreamingContext context)
-      : base (info, context)
-    {
-    }
+    ///// <summary>
+    ///// Protected constructor for internal use.
+    ///// </summary>
+    ///// <param name="info">Serialization data.</param>
+    ///// <param name="context">Serialization stream.</param>
+    //protected Surface(SerializationInfo info, StreamingContext context)
+    //  : base (info, context)
+    //{
+    //}
     #endregion
 
     #region methods

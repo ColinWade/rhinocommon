@@ -7,7 +7,7 @@ using Rhino.Runtime.InteropWrappers;
 
 namespace Rhino.DocObjects
 {
-  [Serializable]
+  //[Serializable]
   public class Layer : Rhino.Runtime.CommonObject
   {
     #region members
@@ -64,11 +64,11 @@ namespace Rhino.DocObjects
       m__parent = onxModel;
     }
 
-    // serialization constructor
-    protected Layer(SerializationInfo info, StreamingContext context)
-      : base (info, context)
-    {
-    }
+    //// serialization constructor
+    //protected Layer(SerializationInfo info, StreamingContext context)
+    //  : base (info, context)
+    //{
+    //}
 
 #if RHINO_SDK
     /// <summary>

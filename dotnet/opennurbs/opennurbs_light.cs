@@ -7,7 +7,7 @@ namespace Rhino.Geometry
   /// <summary>
   /// Represents a light that shines in the modeling space.
   /// </summary>
-  [Serializable]
+  //[Serializable]
   public class Light : GeometryBase
   {
 #if RDK_CHECKED
@@ -99,15 +99,15 @@ namespace Rhino.Geometry
       ConstructNonConstObject(pLight);
     }
 
-    /// <summary>
-    /// Protected constructor used in serialization.
-    /// </summary>
-    /// <param name="info">Serialization data.</param>
-    /// <param name="context">Serialization stream.</param>
-    protected Light(SerializationInfo info, StreamingContext context)
-      : base (info, context)
-    {
-    }
+    ///// <summary>
+    ///// Protected constructor used in serialization.
+    ///// </summary>
+    ///// <param name="info">Serialization data.</param>
+    ///// <param name="context">Serialization stream.</param>
+    //protected Light(SerializationInfo info, StreamingContext context)
+    //  : base (info, context)
+    //{
+    //}
 
 #if RHINO_SDK
     internal override IntPtr _InternalGetConstPointer()

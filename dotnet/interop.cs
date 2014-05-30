@@ -8,14 +8,14 @@ namespace Rhino.Runtime
   public static class Interop
   {
     //eventually this could go away if we just do all of the abgr->argb conversions in C++
-    internal static System.Drawing.Color ColorFromWin32(int abgr)
-    {
-#if MONO_BUILD
-      return System.Drawing.Color.FromArgb(0xFF, (abgr & 0xFF), ((abgr >> 8) & 0xFF), ((abgr >> 16) & 0xFF));
-#else
-      return System.Drawing.ColorTranslator.FromWin32(abgr);
-#endif
-    }    
+//    internal static System.Drawing.Color ColorFromWin32(int abgr)
+//    {
+//#if MONO_BUILD
+//      return System.Drawing.Color.FromArgb(0xFF, (abgr & 0xFF), ((abgr >> 8) & 0xFF), ((abgr >> 16) & 0xFF));
+//#else
+//      return System.Drawing.ColorTranslator.FromWin32(abgr);
+//#endif
+//    }    
 
 #if RHINO_SDK
     /// <summary>
